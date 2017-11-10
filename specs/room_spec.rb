@@ -31,7 +31,7 @@ class TestRoom < MiniTest::Test
     @room1.check_in_guest(@guest1)
     assert_equal(1, @room1.guests_in_room)
   end
-  
+
   def test_check_out_guest
     @room1.check_in_guest(@guest1)
     @room1.check_in_guest(@guest2)
@@ -39,9 +39,9 @@ class TestRoom < MiniTest::Test
     assert_equal(1, @room1.guests_in_room)
   end
 
-  # def test_check_in_song
-  #   @room1.check_in_song(@song1)
-  #   assert_equal(1, @room1.song_running)
-  # end
+  def test_check_in_song
+    @room1.check_in_song(@song1)
+    assert_equal(1, @room1.song_running)
+  end
 
 end

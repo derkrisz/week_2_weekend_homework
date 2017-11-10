@@ -15,12 +15,12 @@ attr_reader :name
   def check_in_guest(guest)
     @guests.push(guest)
   end
-  
+
   def check_out_guest(guest)
     @guests.delete(guest)
   end
 
-  # def check_in_song(song)
-  #   @songs.push(song)
-  # end
+  def check_in_song(song)
+    @songs.push(song)
+  end
 end
