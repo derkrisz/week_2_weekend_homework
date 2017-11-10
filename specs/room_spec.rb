@@ -41,7 +41,7 @@ class TestRoom < MiniTest::Test
 
   def test_check_in_song
     @room1.check_in_song(@song1)
-    assert_equal(1, @room1.song_running)
+    assert_equal(1, @room1.song_running.count)
   end
 
 end

@@ -20,6 +20,10 @@ attr_reader :name
     @guests.delete(guest)
   end
 
+  def song_running
+    @songs
+  end
+
   def check_in_song(song)
     @songs.push(song)
   end
