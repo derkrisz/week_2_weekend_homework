@@ -15,9 +15,9 @@ attr_reader :name, :guests
   end
 
   def check_in_guest(guest)
-    if guests_in_room < 4
+    if guests_in_room < @capacity
     @guests.push(guest)
-    guest.wallet -= 5
+    guest.wallet -= @entry_fee
     else
       return "Sorry this room is full"
     end
