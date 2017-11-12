@@ -1,11 +1,12 @@
 class Room
 
-attr_reader :name
+attr_reader :name, :guests
 
-  def initialize(name)
+  def initialize(name, guests)
     @name = name
-    @guests = []
+    @guests = guests
     @songs = []
+    @capacity = 4
   end
 
   def guests_in_room
@@ -13,7 +14,11 @@ attr_reader :name
   end
 
   def check_in_guest(guest)
+    if guests_in_room < 4
     @guests.push(guest)
+    else
+      return "Sorry this room is full"
+    end
   end
 
   def check_out_guest(guest)
@@ -27,4 +32,6 @@ attr_reader :name
   def check_in_song(song)
     @songs.push(song)
   end
+
+
 end
