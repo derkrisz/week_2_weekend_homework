@@ -7,16 +7,18 @@ require_relative('../song.rb')
 class TestRoom < MiniTest::Test
 
   def setup
-    @room1 = Room.new('Rock', [])
-    @room2 = Room.new('Pop', [@guest1, @guest2, @guest3])
-    @guest1 = Guest.new('Andrew')
-    @guest2 = Guest.new('John')
-    @guest3 = Guest.new('William')
-    @guest4 = Guest.new('Jake')
-    @guest5 = Guest.new('Tina')
+
+    @guest1 = Guest.new('Andrew', 100)
+    @guest2 = Guest.new('John', 110)
+    @guest3 = Guest.new('William', 120)
+    @guest4 = Guest.new('Jake', 90)
+    @guest5 = Guest.new('Tina', 200)
+    @guests = [@guest1, @guest2, @guest3]
     @song1 = Song.new('One', 'Metallica')
     @song2 = Song.new('Duke Nukem', 'Megadeth')
     @song3 = Song.new('Davidian', 'Machine Head')
+    @room1 = Room.new('Rock', [])
+    @room2 = Room.new('Pop', @guests)
   end
 
 
@@ -49,6 +51,13 @@ class TestRoom < MiniTest::Test
     @room2.check_in_guest(@guest4)
     @room2.check_in_guest(@guest5)
     assert_equal("Sorry this room is full", @room2.check_in_guest(@guest5))
+  end
+
+  def test_room_entry_fee
+  @room1.check_in_guest(@guest5)
+  @room1.check_in_guest(@guest4)
+  assert_equal(195, @guest5.wallet)
+  assert_equal(85, @guest4.wallet)
   end
 
 
