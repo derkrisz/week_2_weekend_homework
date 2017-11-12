@@ -2,10 +2,10 @@ class Room
 
 attr_reader :name, :guests
 
-  def initialize(name, guests)
+  def initialize(name, guests, songs)
     @name = name
     @guests = guests
-    @songs = []
+    @songs = songs
     @capacity = 4
     @entry_fee = 5
   end
@@ -33,6 +33,12 @@ attr_reader :name, :guests
 
   def check_in_song(song)
     @songs.push(song)
+  end
+
+  def favourite_song(guest, song)
+    if guest.song == song.title
+      return "YEAH I love this song!"
+    end
   end
 
 

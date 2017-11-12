@@ -8,17 +8,22 @@ class TestRoom < MiniTest::Test
 
   def setup
 
-    @guest1 = Guest.new('Andrew', 100)
-    @guest2 = Guest.new('John', 110)
-    @guest3 = Guest.new('William', 120)
-    @guest4 = Guest.new('Jake', 90)
-    @guest5 = Guest.new('Tina', 200)
+    @guest1 = Guest.new('Andrew', 100, 'Broken')
+    @guest2 = Guest.new('John', 110, 'The Crusade')
+    @guest3 = Guest.new('William', 120, 'Ticks And Leeches')
+    @guest4 = Guest.new('Jake', 90, 'Gangnam Style')
+    @guest5 = Guest.new('Tina', 200, 'Davidian')
+
     @guests = [@guest1, @guest2, @guest3]
+
     @song1 = Song.new('One', 'Metallica')
     @song2 = Song.new('Duke Nukem', 'Megadeth')
     @song3 = Song.new('Davidian', 'Machine Head')
-    @room1 = Room.new('Rock', [])
-    @room2 = Room.new('Pop', @guests)
+
+    @songs = [@song1, @song2, @song3]
+
+    @room1 = Room.new('Rock', [], [])
+    @room2 = Room.new('Pop', @guests, @songs)
   end
 
 
@@ -60,6 +65,10 @@ class TestRoom < MiniTest::Test
   assert_equal(85, @guest4.wallet)
   end
 
+  def test_fav_song_playing
+    result = @room2.favourite_song(@guest5, @song3)
+    assert_equal('YEAH I love this song!', result)
+  end
 
 
 end
