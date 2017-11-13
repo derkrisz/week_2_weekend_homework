@@ -5,7 +5,7 @@ require_relative('../guest.rb')
 require_relative('../song.rb')
 
 class TestRoom < MiniTest::Test
-
+  
   def setup
 
     @guest1 = Guest.new('Andrew', 100, 'Broken')
@@ -59,10 +59,10 @@ class TestRoom < MiniTest::Test
   end
 
   def test_room_entry_fee
-  @room1.check_in_guest(@guest5)
-  @room1.check_in_guest(@guest4)
-  assert_equal(195, @guest5.wallet)
-  assert_equal(85, @guest4.wallet)
+    @room1.check_in_guest(@guest5)
+    @room1.check_in_guest(@guest4)
+    assert_equal(195, @guest5.wallet)
+    assert_equal(85, @guest4.wallet)
   end
 
   def test_fav_song_playing

@@ -1,6 +1,6 @@
 class Room
 
-attr_reader :name, :guests
+  attr_reader :name, :guests
 
   def initialize(name, guests, songs)
     @name = name
@@ -16,8 +16,8 @@ attr_reader :name, :guests
 
   def check_in_guest(guest)
     if guests_in_room < @capacity
-    @guests.push(guest)
-    guest.wallet -= @entry_fee
+      @guests.push(guest)
+      guest.wallet -= @entry_fee
     else
       return "Sorry this room is full"
     end
