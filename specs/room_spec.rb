@@ -5,7 +5,7 @@ require_relative('../guest.rb')
 require_relative('../song.rb')
 
 class TestRoom < MiniTest::Test
-  
+
   def setup
 
     @guest1 = Guest.new('Andrew', 100, 'Broken')
@@ -18,7 +18,7 @@ class TestRoom < MiniTest::Test
 
     @song1 = Song.new('One', 'Metallica')
     @song2 = Song.new('Duke Nukem', 'Megadeth')
-    @song3 = Song.new('Davidian', 'Machine Head')
+    @song3 = Song.new('The Crusade', 'Machine Head')
 
     @songs = [@song1, @song2, @song3]
 
@@ -66,9 +66,8 @@ class TestRoom < MiniTest::Test
   end
 
   def test_fav_song_playing
-    result = @room2.favourite_song(@guest5, @song3)
+    result = @room2.favourite_song(@song3)
     assert_equal('YEAH I love this song!', result)
   end
-
 
 end

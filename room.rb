@@ -35,9 +35,11 @@ class Room
     @songs.push(song)
   end
 
-  def favourite_song(guest, song)
-    if guest.song == song.title
-      return "YEAH I love this song!"
+  def favourite_song(song)
+    for guest in @guests
+      if guest.song == song.title
+        return "YEAH I love this song!"
+      end
     end
   end
 
